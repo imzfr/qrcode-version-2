@@ -21,7 +21,7 @@
                 @csrf
                 <input type="text" class="form-control" name="ownerName" placeholder="Owner name">
                 <input type="text" class="form-control" name="businessName" placeholder="Business name">
-                <input type="text" class="form-control" name="address" placeholder="Business Address">
+                <input type="text" class="form-control" name="address" placeholder="Business address">
 
                 <button type="submit">Register</button>
 
