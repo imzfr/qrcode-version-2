@@ -1,0 +1,38 @@
+body {
+    background-color: black;
+    display: grid;
+    place-items: center;
+}
+
+h1 {
+    color: white;
+    padding-top: 30px;
+    font-family: 'Titillium Web';
+}
+
+.container {
+    margin-top: 50px;
+    position: relative;
+    background-color: white;
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding-left: 17px;
+    margin-bottom: 20px;
+}
+
+textarea {
+    margin-bottom: 20px;
+}
+
+button {
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
