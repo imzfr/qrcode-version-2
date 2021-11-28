@@ -9,13 +9,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
     <!-- Styles -->
     <link href="/css/mystyle.css" rel="stylesheet">
+
+    <style>
+        #preview {
+            width: 300px;
+            height: 300px;
+            margin: 0px;
+            align-items: center;
+        }
+    </style>
 </head>
 
 <body>
     <div id="feedback-form">
         <h2 class="header"><b>QR Check-In For Shop</b></h2>
-        <div>
 
+        <div>
 
             <form class="form-inline" action="{{ route('store') }}" method="POST">
                 @csrf
@@ -53,6 +62,28 @@
                 </table>-->
 
                 <a href="{{ route('generate',$data->id) }}" download>Download QR Code</a>
+            </div>
+
+            <div class="camera">
+                <video id="preview"></video>
+                <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+                <script type="text/javascript">
+                    let scanner = new Instascan.Scanner({
+                        video: document.getElementById('preview')
+                    });
+                    scanner.addListener('scan', function(content) {
+                        window.alert(content);
+                    });
+                    Instascan.Camera.getCameras().then(function(cameras) {
+                        if (cameras.length > 0) {
+                            scanner.start(cameras[0]);
+                        } else {
+                            console.error('No cameras found.');
+                        }
+                    }).catch(function(e) {
+                        console.error(e);
+                    });
+                </script>
             </div>
 
             <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

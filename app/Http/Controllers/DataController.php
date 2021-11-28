@@ -21,7 +21,7 @@ class DataController extends Controller
     public function generate ($id)
     {
         $data = Data::findOrFail($id);
-        $qrcode = QrCode::size(300)->generate($data->id);
+        $qrcode = QrCode::size(300)->generate($data->businessName);
         return view('qrcode',compact('qrcode'));
     }
 }
